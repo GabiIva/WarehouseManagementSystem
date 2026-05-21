@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\bin\Debug\net8.0\WarehouseManagementSystem.exe
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\bin\Debug\net8.0\WarehouseManagementSystem.deps.json
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\bin\Debug\net8.0\WarehouseManagementSystem.runtimeconfig.json
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\bin\Debug\net8.0\WarehouseManagementSystem.dll
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\bin\Debug\net8.0\WarehouseManagementSystem.pdb
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\WarehouseManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\WarehouseManagementSystem.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\WarehouseManagementSystem.AssemblyInfo.cs
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\WarehouseManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\WarehouseManagementSystem.dll
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\refint\WarehouseManagementSystem.dll
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\WarehouseManagementSystem.pdb
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\WarehouseManagementSystem.genruntimeconfig.cache
+C:\Users\User\source\repos\WarehouseManagementSystem\WarehouseManagementSystem\obj\Debug\net8.0\ref\WarehouseManagementSystem.dll

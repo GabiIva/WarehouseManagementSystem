@@ -1,0 +1,4 @@
+﻿Product|Iphone 15 pro max|990|3|True
+Product|Smartwatch|45|4|True
+Product|Iphone 11|450|3|True
+Product|Laptop Lenovo|550|2|True
