@@ -5,7 +5,6 @@ namespace WarehouseManagementSystem.Infrastructure
 {
     public static class LoginService
     {
-        // Пазим потребителите тук в самия сервиз
         private static Dictionary<string, string> users = new Dictionary<string, string>()
         {
             { "admin", "1234" },
