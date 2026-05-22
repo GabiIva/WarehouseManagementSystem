@@ -10,8 +10,7 @@ namespace WarehouseManagementSystem.Models
 
         public Product(string name, decimal price, int quantity, bool isFragile)
         {
-            // ПРИНУДИТЕЛНО ЗАПИСВАНЕ
-            this.Name = string.IsNullOrWhiteSpace(name) ? "Неизвестен" : name;
+            this.Name = string.IsNullOrWhiteSpace(name) ? "ГЌГҐГЁГ§ГўГҐГ±ГІГҐГ­" : name;
             this.Price = price;
             this.Quantity = quantity;
             this.IsFragile = isFragile;
@@ -20,28 +19,25 @@ namespace WarehouseManagementSystem.Models
         public override void Display(int indent)
         {
             string indentation = new string(' ', indent);
-
-            // Начало на реда
-            Console.Write($"{indentation}- Продукт: ");
+            
+            Console.Write($"{indentation}- ГЏГ°Г®Г¤ГіГЄГІ: ");
 
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.Write(this.Name.PadRight(15));
 
-            // Ако е чупливо, ще добавим червен надпис
             if (IsFragile)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write(" [ЧУПЛИВО]");
+                Console.Write(" [Г—Г“ГЏГ‹Г€Г‚ГЋ]");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.DarkGray;
-                Console.Write(" [СТАНДАРТ]");
+                Console.Write(" [Г‘Г’ГЂГЌГ„ГЂГђГ’]");
             }
 
-            // Цената и наличността в нормален цвят
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($" | Цена: {Price:F2} EUR | Наличност: {Quantity} бр.");
+            Console.WriteLine($" | Г–ГҐГ­Г : {Price:F2} EUR | ГЌГ Г«ГЁГ·Г­Г®Г±ГІ: {Quantity} ГЎГ°.");
         }
     }
 }
