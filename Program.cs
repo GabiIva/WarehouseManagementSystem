@@ -8,10 +8,7 @@ namespace WarehouseManagementSystem
 {
     class Program
     {
-        // Главната категория на склада
         static Category root = new Category("Основен Склад");
-
-        // Мениджър на историята за Undo
         static HistoryManager history = new HistoryManager();
 
         static string filePath = "warehouse_data.txt";
@@ -36,14 +33,11 @@ namespace WarehouseManagementSystem
 
             while (true)
             {
-                // Задаваме жълт фон и чистим екрана, за да се боядиса целият в жълто
                 Console.BackgroundColor = ConsoleColor.Yellow;
                 Console.Clear();
 
-                // МНОГО ВАЖНО: Казваме на програмата, че ВСИЧКИ букви оттук нататък трябва да са ЧЕРНИ
                 Console.ForegroundColor = ConsoleColor.Black;
 
-                // Чисто и елегантно заглавие без излишни черти
                 Console.WriteLine("\n ============================================");
                 Console.WriteLine("     СИСТЕМА ЗА УПРАВЛЕНИЕ НА СКЛАД     ");
                 Console.WriteLine(" ============================================");
@@ -52,7 +46,6 @@ namespace WarehouseManagementSystem
                 Console.WriteLine("  --> Изберете опция от менюто (1 - 9):");
                 Console.WriteLine("  --------------------------------------------");
 
-                // Секция 1
                 Console.WriteLine("  --- Продукти и Наличности ---");
                 Console.WriteLine("   1) Добави продукт");
                 Console.WriteLine("   2) Покажи инвентар");
@@ -61,7 +54,6 @@ namespace WarehouseManagementSystem
 
                 Console.WriteLine();
 
-                // Секция 2
                 Console.WriteLine("  --- Доставка и Статистика ---");
                 Console.WriteLine("   5) Подготовка за доставка (Strategy)");
                 Console.WriteLine("   6) Статистика на склада");
@@ -69,7 +61,6 @@ namespace WarehouseManagementSystem
 
                 Console.WriteLine();
 
-                // Секция 3
                 Console.WriteLine("  --- Файлове и Изход ---");
                 Console.WriteLine("   8) Запиши данните във файл");
                 Console.WriteLine("   9) Изход");
@@ -79,7 +70,6 @@ namespace WarehouseManagementSystem
 
                 string choice = Console.ReadLine();
 
-                // Оттук надолу твоят switch(choice) си продължава...
 
                 switch (choice)
                 {
@@ -107,7 +97,7 @@ namespace WarehouseManagementSystem
                         break;
 
                     case "6":
-                        ShowStatistics(); // Този метод добавихме току-що
+                        ShowStatistics(); 
                         break;
 
                     case "7":
@@ -115,7 +105,6 @@ namespace WarehouseManagementSystem
                         break;
 
                     case "8":
-                        // Първо името на файла (filePath), после данните (root.Children)
                         fileService.SaveToFile(filePath, root.Children);
                         break;
 
@@ -126,7 +115,7 @@ namespace WarehouseManagementSystem
 
                     default:
                         Console.WriteLine("❌ Невалиден избор! Опитайте пак.");
-                        System.Threading.Thread.Sleep(1000); // Малко изчакване преди рестарт на менюто
+                        System.Threading.Thread.Sleep(1000); 
                         break;
                 }
             }
@@ -141,8 +130,7 @@ namespace WarehouseManagementSystem
             Console.WriteLine("\n ============================================");
             Console.WriteLine("     ДОБАВЯНЕ НА НОВ ПРОДУКТ     ");
             Console.WriteLine(" ============================================");
-
-            // 1. ВЪВЕЖДАНЕ И ВАЛИДАЦИЯ НА ИМЕ
+            
             string name = "";
             while (true)
             {
@@ -158,18 +146,16 @@ namespace WarehouseManagementSystem
                 Console.WriteLine("❌ Името на продукта не може да бъде празно!");
                 Console.ForegroundColor = ConsoleColor.Black;
             }
-
-            // 2. ВЪВЕЖДАНЕ И ВАЛИДАЦИЯ НА ЦЕНА
+            
             decimal price;
             while (true)
             {
                 Console.Write("Въведете цена (в EUR): ");
                 string priceInput = Console.ReadLine();
 
-                // Проверява дали е число и дали е положително
                 if (decimal.TryParse(priceInput, out price) && price >= 0)
                 {
-                    break; // Цената е супер
+                    break; 
                 }
 
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -177,25 +163,22 @@ namespace WarehouseManagementSystem
                 Console.ForegroundColor = ConsoleColor.Black;
             }
 
-            // 3. ВЪВЕЖДАНЕ И ВАЛИДАЦИЯ НА КОЛИЧЕСТВО
             int quantity;
             while (true)
             {
                 Console.Write("Въведете количество: ");
                 string qtyInput = Console.ReadLine();
 
-                // Проверява дали е цяло число и дали е положително
                 if (int.TryParse(qtyInput, out quantity) && quantity >= 0)
                 {
-                    break; // Количеството е супер
+                    break; 
                 }
 
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("❌ Невалидно количество! Моля, въведете цяло положително число (напр. 10).");
                 Console.ForegroundColor = ConsoleColor.Black;
             }
-
-            // 4. ВЪВЕЖДАНЕ И ВАЛИДАЦИЯ ДАЛИ Е ЧУПЛИВ
+            
             bool isFragile = false;
             Console.InputEncoding = System.Text.Encoding.UTF8;
 
@@ -219,12 +202,10 @@ namespace WarehouseManagementSystem
                 Console.WriteLine("❌ Невалиден отговор! Моля, въведете 'да' или 'не'.");
                 Console.ForegroundColor = ConsoleColor.Black;
             }
-
-            // 5. СЪЗДАВАНЕ НА ПРОДУКТА И ДОБАВЯНЕ В СКЛАДА
-            // Забележка: Провери дали твоят конструктор на Product приема параметрите в този ред!
+            
             Product newProduct = new Product(name, price, quantity, isFragile);
 
-            root.Add(newProduct); // Добавяме го към главното дърво/категория
+            root.Add(newProduct); 
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"\n✅ Продуктът '{name}' беше добавен успешно в паметта!");
@@ -281,7 +262,6 @@ namespace WarehouseManagementSystem
             Console.WriteLine(" ============================================");
             Console.Write("Въведете име на продукта: ");
 
-            // Входът от клавиатурата - чист, без интервали и изцяло с малки букви
             string input = Console.ReadLine()?.Trim().ToLower() ?? "";
 
             if (string.IsNullOrEmpty(input))
@@ -297,14 +277,11 @@ namespace WarehouseManagementSystem
             {
                 if (item is Product p)
                 {
-                    // Изчистваме ANSI цветовите кодове от името в базата данни
                     string cleanDatabaseName = System.Text.RegularExpressions.Regex.Replace(p.Name, @"\x1B\[[^@-_]*[0-?]*[ -/]*[@-~]", "");
 
-                    // Махаме интервалите и правим всичко с малки букви
                     cleanDatabaseName = cleanDatabaseName.Trim().ToLower();
                     string cleanInput = input.Trim().ToLower();
 
-                    // Директно и точно сравнение
                     if (cleanDatabaseName == cleanInput || cleanDatabaseName.Contains(cleanInput))
                     {
                         foundProduct = p;
@@ -315,7 +292,6 @@ namespace WarehouseManagementSystem
 
             if (foundProduct != null)
             {
-                // Използваме стратегията според това дали е чуплив
                 IShippingStrategy strategy = foundProduct.IsFragile ? new FragileShipping() : new StandardShipping();
                 decimal total = strategy.CalculateTotal(foundProduct);
 
@@ -323,7 +299,6 @@ namespace WarehouseManagementSystem
                 Console.WriteLine($"\n✅ Продуктът е намерен успешно!");
                 Console.ForegroundColor = ConsoleColor.Black;
 
-                // Използваме p.Name, за да го изпише с оригиналния му цвят в конзолата
                 Console.WriteLine($"📦 Артикул: {foundProduct.Name}");
                 Console.WriteLine($"💰 Крайна цена с доставка: {total:F2} EUR");
             }
@@ -357,23 +332,19 @@ namespace WarehouseManagementSystem
             int totalQty = 0;
             decimal totalValue = 0;
 
-            // Създаваме списък, в който ще пазим само уникалните имена, за да премахнем дубликатите
             List<string> uniqueProductNames = new List<string>();
 
             foreach (var node in root.Children)
             {
                 if (node is Product p)
                 {
-                    // Изчистваме името от скрити цветови кодове за всеки случай
                     string cleanName = System.Text.RegularExpressions.Regex.Replace(p.Name, @"\x1B\[[^@-_]*[0-?]*[ -/]*[@-~]", "").Trim();
 
-                    // Ако този продукт ВЕЧЕ сме го преброили, го пропускаме (за да не трупа излишни бройки)
                     if (uniqueProductNames.Contains(cleanName))
                     {
                         continue;
                     }
 
-                    // Ако е нов, го добавяме в списъка и го броим
                     uniqueProductNames.Add(cleanName);
                     totalQty += p.Quantity;
                     totalValue += (p.Price * p.Quantity);
