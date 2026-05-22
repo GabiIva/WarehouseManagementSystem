@@ -4,7 +4,6 @@ namespace WarehouseManagementSystem.Models
 {
     public abstract class WarehouseComponent
     {
-        // Увери се, че пише точно това:
         public string Name { get; set; }
 
         public abstract void Display(int indent);
