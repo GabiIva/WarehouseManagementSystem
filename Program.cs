@@ -111,7 +111,7 @@ namespace WarehouseManagementSystem
                     case "9":
                         fileService.SaveToFile(filePath, root.Children);
                         Console.WriteLine("Програмата се затваря. Довиждане!");
-                        return; // Излиза от Main и затваря програмата
+                        return;
 
                     default:
                         Console.WriteLine("❌ Невалиден избор! Опитайте пак.");
@@ -139,7 +139,7 @@ namespace WarehouseManagementSystem
 
                 if (!string.IsNullOrEmpty(name))
                 {
-                    break; // Името е валидно, излизаме от цикъла
+                    break; 
                 }
 
                 Console.ForegroundColor = ConsoleColor.Red;
