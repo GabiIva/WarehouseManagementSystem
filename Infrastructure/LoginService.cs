@@ -30,7 +30,7 @@ namespace WarehouseManagementSystem.Infrastructure
 
                 string choice = Console.ReadLine();
 
-                if (choice == "1") // ЛОГИН
+                if (choice == "1") 
                 {
                     Console.Clear();
                     Console.WriteLine("\n --- ВХОД УСЛУЖИТЕЛ ---");
@@ -46,7 +46,7 @@ namespace WarehouseManagementSystem.Infrastructure
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.WriteLine(" Натиснете клавиш за достъп до менюто...");
                         Console.ReadKey();
-                        return; // Пуска потребителя напред
+                        return; 
                     }
                     else
                     {
@@ -56,7 +56,7 @@ namespace WarehouseManagementSystem.Infrastructure
                         Console.ReadKey();
                     }
                 }
-                else if (choice == "2") // РЕГИСТРАЦИЯ
+                else if (choice == "2") 
                 {
                     Console.Clear();
                     Console.WriteLine("\n --- РЕГИСТРАЦИЯ НА НОВ СЛУЖИТЕЛ ---");
@@ -90,7 +90,7 @@ namespace WarehouseManagementSystem.Infrastructure
                         Console.ReadKey();
                     }
                 }
-                else if (choice == "3") // ИЗХОД
+                else if (choice == "3") 
                 {
                     Environment.Exit(0);
                 }
