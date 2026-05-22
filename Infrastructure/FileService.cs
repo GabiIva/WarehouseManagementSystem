@@ -8,24 +8,20 @@ namespace WarehouseManagementSystem.Infrastructure
 {
     public class FileService
     {
-        // Метод за записване на данните
         public void SaveToFile(string filePath, List<WarehouseComponent> components)
         {
             try
             {
-                // Използваме Encoding.UTF8 за правилно записване на кирилица
                 using (StreamWriter writer = new StreamWriter(filePath, false, Encoding.UTF8))
                 {
                     foreach (var component in components)
                     {
                         if (component is Product p)
                         {
-                            // Записваме формат: Тип|Име|Цена|Количество|Чупливост
                             writer.WriteLine($"Product|{p.Name}|{p.Price}|{p.Quantity}|{p.IsFragile}");
                         }
                         else if (component is Category c)
                         {
-                            // Ако имаш категории, записваме и тях
                             writer.WriteLine($"Category|{c.Name}");
                         }
                     }
@@ -37,8 +33,6 @@ namespace WarehouseManagementSystem.Infrastructure
                 Console.WriteLine($"❌ ГРЕШКА при запис: {ex.Message}");
             }
         }
-
-        // Метод за зареждане на данните
         public List<WarehouseComponent> LoadFromFile(string filePath)
         {
             List<WarehouseComponent> components = new List<WarehouseComponent>();
@@ -50,7 +44,6 @@ namespace WarehouseManagementSystem.Infrastructure
 
             try
             {
-                // Използваме Encoding.UTF8 за правилно четене на кирилица
                 using (StreamReader reader = new StreamReader(filePath, Encoding.UTF8))
                 {
                     string line;
