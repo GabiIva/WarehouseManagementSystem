@@ -31,7 +31,7 @@ namespace WarehouseManagementSystem.Models
         {
             string indentation = new string(' ', indent);
 
-            Console.ForegroundColor = ConsoleColor.Yellow; // Категориите ще са жълти
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{indentation}📂 КАТЕГОРИЯ: {this.Name.ToUpper()}");
             Console.ForegroundColor = ConsoleColor.Black;
 
